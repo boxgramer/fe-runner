@@ -3,9 +3,9 @@ import Image from "next/image";
 export default function Header() {
   return (
     <div
-      className={` bg-transparent w-full block  h-14 z-50 sticky border-b-2 border-white `}
+      className={` bg-black w-full h-14 z-50 sticky top-0 border-b-2 border-white `}
     >
-      <div className="w-5/6 mx-auto h-full">
+      <div className="w-5/6 mx-auto h-full top-0 ">
         <div className="flex justify-between items-center  h-full">
           <div>
             <Image

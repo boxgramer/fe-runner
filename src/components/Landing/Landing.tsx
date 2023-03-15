@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Landing() {
   return (
-    <div className="bg-black  absolute top-0 w-full h-full px-24 bg-[url('/images/landing_background.png')] bg-cover bg-no-repeat bg-center ">
+    <div className="bg-black block  w-full h-[100vh] top-0 px-24 bg-[url('/images/landing_background.png')] bg-cover bg-no-repeat bg-center ">
       <div className="w-3/6 float-left h-full pt-44 pb-24 pl-20 xl:pl-44 pr-14">
         <div className="border-4 border-white border-solid  h-full">
           <div className="pl-4">
