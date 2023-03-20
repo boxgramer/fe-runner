@@ -3,9 +3,9 @@ import Image from "next/image";
 export default function Header() {
   return (
     <div
-      className={` bg-black w-full h-14 z-50 sticky top-0 border-b-2 border-white `}
+      className={` bg-black w-full h-14 z-50 sticky top-0 border-b-2 p-2  border-[#DBDADA]`}
     >
-      <div className="w-5/6 mx-auto h-full top-0 ">
+      <div className=" w-full h-full top-0  ">
         <div className="flex justify-between items-center  h-full">
           <div>
             <Image
@@ -17,10 +17,7 @@ export default function Header() {
             />
           </div>
           <div>
-            <h1 className="text-4xl  font-bold text-white ">Wellcome</h1>
-          </div>
-          <div>
-            <button>
+            <button className="text-black">
               <svg
                 width="40"
                 height="40"
@@ -28,7 +25,7 @@ export default function Header() {
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <g clip-path="url(#clip0_1_12)">
+                <g clipPath="url(#clip0_1_12)">
                   <path
                     d="M67.375 20C67.375 20.9283 67.037 21.8185 66.4353 22.4749C65.8336 23.1312 65.0176 23.5 64.1667 23.5H12.8333C11.9824 23.5 11.1664 23.1312 10.5647 22.4749C9.96302 21.8185 9.625 20.9283 9.625 20C9.625 19.0717 9.96302 18.1815 10.5647 17.5251C11.1664 16.8687 11.9824 16.5 12.8333 16.5H64.1667C65.0176 16.5 65.8336 16.8687 66.4353 17.5251C67.037 18.1815 67.375 19.0717 67.375 20Z"
                     fill="white"
@@ -47,7 +44,7 @@ export default function Header() {
                     <rect
                       width="77"
                       height="84"
-                      fill="white"
+                      fill="#DBDADA"
                       transform="translate(0 -1)"
                     />
                   </clipPath>

@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function InfoGalery() {
   return (
     <div className="bg-[#EBEBEB]  block h-[858px] relative ">
-      <div className="absolute top-[250px] right-0 bg-[#BABABA] h-[900px] w-4/6  z-0"></div>
+      <div className="absolute top-[250px] right-0 bg-[#BABABA] h-[972px] w-[864px]  z-0"></div>
       <div className="p-14 absolute top-0 z-10 ">
         <div className="flex gap-5  ">
           <div className="flex  flex-wrap gap-5 w-3/6 ">
