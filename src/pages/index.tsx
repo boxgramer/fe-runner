@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import Landing from "@/components/Landing";
 import InfoGalery from "@/components/InfoGalery";
 import Info from "@/components/Info";
+import SliderSection from "@/components/SliderSection";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,6 +25,7 @@ export default function Home() {
           <Landing />
           <InfoGalery />
           <Info />
+          <SliderSection />
         </div>
       </main>
     </>
