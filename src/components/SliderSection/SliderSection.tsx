@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
-import style from "./SliderSection.module.css";
 import { useState } from "react";
 
 export default function SliderSection() {
