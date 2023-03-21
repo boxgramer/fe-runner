@@ -2,63 +2,42 @@ import Image from "next/image";
 
 export default function InfoGalery() {
   return (
-    <div className="bg-[#EBEBEB]  block h-[858px] relative ">
-      <div className="absolute top-[250px] right-0 bg-[#BABABA] h-[972px] w-[864px]  z-0"></div>
-      <div className="p-14 absolute top-0 z-10 ">
-        <div className="flex gap-5  ">
-          <div className="flex  flex-wrap gap-5 w-3/6 ">
-            <div className="flex-1">
-              <Image
-                src="/images/image1.png"
-                alt="image1"
-                width={200}
-                height={100}
-                className="object-cover w-full h-full "
-              />
-            </div>
-
-            <div className="block">
-              <Image
-                src="/images/image2.png"
-                alt="image1"
-                width={400}
-                height={100}
-                className="object-cover  w-full h-full"
-              />
-            </div>
-            <div className="w-full">
-              <Image
-                src="/images/image4.png"
-                alt="image1"
-                width={400}
-                height={300}
-                className="object-cover  w-full h-full "
-              />
-            </div>
-          </div>
-
-          <div className="flex flex-col w-3/6 gap-5">
-            <div className="h-full w-full">
-              <Image
-                src="/images/image3.png"
-                alt="image1"
-                width={500}
-                height={500}
-                className="object-cover w-full h-full"
-              />
-            </div>
-            <div className="flex-1">
-              <h1 className="font-bold text-5xl">Running and Walking</h1>
-              <p className="font-bold text-4xl text-justify ">
-                burn more calories lot of the other exercise programs that you
-                can work in can work in..
-                <button className="float-right border-4 border-black px-4 text-xl text-center">
-                  read more
-                </button>
-              </p>
-            </div>
-          </div>
+    <div className="bg-[#4D4D4D] p-4  block h-[100vh] ">
+      <div className="relative block mt-24 h-96">
+        <div className="w-3/5 h-[228px]">
+          <Image
+            src="/images/section_2_image_1.jpg"
+            alt="image section 2"
+            width={100}
+            height={200}
+            className="object-cover w-full h-full"
+          />
         </div>
+        <div className="w-3/5 h-[266px] absolute top-28 right-0 ">
+          <Image
+            src="/images/section_2_image_2.jpg"
+            alt="image section 2"
+            width={100}
+            height={200}
+            className="object-cover w-full h-full"
+          />
+        </div>
+        <div className="bg-[#DBDADA] rounded-lg w-4/6 h-[72px] z-20 absolute left-0 bottom-7 ">
+          <h1 className="text-[#4D4D4D] font-bold text-xl text-justify p-5  underline  underline-offset-8">
+            Runnig and Walking
+          </h1>
+        </div>
+      </div>
+
+      <div className="mt-4">
+        <p className="font-bold text-lg text-[#DBDADA] text-justify">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Eros in
+          cursus turpis massa tincidunt dui ut. Id semper risus in hendrerit
+          gravida rutrum quisque non. Laoreet suspendisse interdum consectetur
+          libero id. Vel risus commodo viverra maecenas accumsan lacus vel
+          facilisis volutpat.
+        </p>
       </div>
     </div>
   );

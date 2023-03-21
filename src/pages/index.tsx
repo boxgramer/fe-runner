@@ -22,8 +22,8 @@ export default function Home() {
         <div className="relative">
           <Header />
           <Landing />
-          {/* <InfoGalery />
-          <Info /> */}
+          <InfoGalery />
+          {/* <Info /> */}
         </div>
       </main>
     </>

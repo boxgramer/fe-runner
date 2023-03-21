@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Landing() {
   return (
-    <div className="bg-black w-full h-[100vh] top-0  p-4  pt-32 bg-[url('/images/original_landing.jpg')]  bg-cover bg-center    bg-no-repeat   ">
+    <div className="bg-black w-full h-[100vh] top-0  p-4  pt-28 bg-[url('/images/original_landing.jpg')]  bg-cover bg-center    bg-no-repeat   ">
       <div className="mt-96">
         <h1 className="font-bold text-[#DBDADA] text-[32px]">Running Club</h1>
         <p className="font-bold text-[#DBDADA] text-[24] text-justify mt-6">
