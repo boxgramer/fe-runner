@@ -16,44 +16,89 @@ export default function SliderSection() {
       setLoaded(true);
     },
   });
+  let dataSlider = [
+    {
+      title: "Running On Road",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do" +
+        "eiusmod tempor incididunt ut labore et dolore magna aliqua." +
+        " Dolor magna eget est lorem ipsum dolor sit amet consectetur." +
+        " Iaculis eu non diam phasellus vestibulum. Eleifend quam" +
+        " adipiscing vitae proin sagittis nisl rhoncus. Sit amet nisl" +
+        " suscipit",
+      image1: {
+        src: "/images/section_4_image_1.jpg",
+        alt: "image 1",
+      },
+      image2: {
+        src: "/images/section_4_image_2.jpg",
+        alt: "image 2",
+      },
+    },
+    {
+      title: "Running On Road 2",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do" +
+        "eiusmod tempor incididunt ut labore et dolore magna aliqua." +
+        " Dolor magna eget est lorem ipsum dolor sit amet consectetur." +
+        " Iaculis eu non diam phasellus vestibulum. Eleifend quam" +
+        " adipiscing vitae proin sagittis nisl rhoncus. Sit amet nisl" +
+        " suscipit",
+      image1: {
+        src: "/images/section_4_image_2.jpg",
+        alt: "image 1",
+      },
+      image2: {
+        src: "/images/section_4_image_1.jpg",
+        alt: "image 2",
+      },
+    },
+  ];
   return (
     <div className="bg-[#4D4D4D] w-full h-[100vh]  p-4">
       <h1 className="text-white font-bold text-3xl text-center mt-7 ">
         Explore Nature
       </h1>
-      <div className="navigation-wrapper">
+      <div className="relative">
         <div ref={sliderRef} className="keen-slider">
-          <div className={`keen-slider__slide ${style.numberSlide1}`}>1</div>
-          <div className={`keen-slider__slide ${style.numberSlide2}`}>2</div>
-          <div className={`keen-slider__slide ${style.numberSlide3}`}>3</div>
-          <div className={`keen-slider__slide ${style.numberSlide4}`}>4</div>
-          <div className={`keen-slider__slide ${style.numberSlide5}`}>5</div>
-          <div className={`keen-slider__slide ${style.numberSlide6}`}>6</div>
+          {dataSlider.map((d, i) => {
+            return (
+              <div key={i} className="keen-slider__slide ">
+                <div className="mt-7 mb-2">
+                  <h1 className="text-center text-[#DBDADA] font-bold text-2xl ">
+                    {d.title}
+                  </h1>
+                </div>
+                <div className="p-4">
+                  <p className="text-justify text-[#DBDADA] font-bold text-lg  ">
+                    {d.description}
+                  </p>
+                  <div className="w-44 h-36 mt-5 shadow-[15px_-15px_#C0C0C0] ">
+                    <Image
+                      src={d.image1.src}
+                      alt={d.image1.alt}
+                      width={100}
+                      height={100}
+                      className="object-cover h-full w-full"
+                    />
+                  </div>
+                  <div className="w-44 h-36 mt-7 float-right mr-5  shadow-[15px_-15px_#C0C0C0] ">
+                    <Image
+                      src={d.image2.src}
+                      alt={d.image2.alt}
+                      width={100}
+                      height={100}
+                      className="object-cover h-full w-full"
+                    />
+                  </div>
+                </div>
+              </div>
+            );
+          })}
         </div>
-        {loaded && instanceRef.current && (
-          <>
-            <Arrow
-              left
-              onClick={(e: any) =>
-                e.stopPropagation() || instanceRef.current?.prev()
-              }
-              disabled={currentSlide === 0}
-            />
-
-            <Arrow
-              onClick={(e: any) =>
-                e.stopPropagation() || instanceRef.current?.next()
-              }
-              disabled={
-                currentSlide ===
-                instanceRef.current.track.details.slides.length - 1
-              }
-            />
-          </>
-        )}
       </div>
       {loaded && instanceRef.current && (
-        <div className={style.dots}>
+        <div className="flex justify-center px-10 mt-5 gap-3">
           {[
             ...Array(instanceRef.current.track.details.slides.length).keys(),
           ].map((idx) => {
@@ -63,7 +108,9 @@ export default function SliderSection() {
                 onClick={() => {
                   instanceRef.current?.moveToIdx(idx);
                 }}
-                className={style.dot + (currentSlide === idx ? " active" : "")}
+                className={` rounded-xl w-7 h-4 ${
+                  currentSlide == idx ? "bg-[#7F7F7F]" : "bg-[#D9D9D9]"
+                }`}
               ></button>
             );
           })}
