@@ -23,7 +23,7 @@ export default function Home() {
           <Header />
           <Landing />
           <InfoGalery />
-          {/* <Info /> */}
+          <Info />
         </div>
       </main>
     </>
