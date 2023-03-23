@@ -4,7 +4,8 @@ export default function InfoGalery() {
   return (
     <div className="bg-[#4D4D4D] p-4  block h-[100vh] ">
       <div className="relative block mt-24 h-96">
-        <div className="w-3/5 h-[228px]">
+        <div className="w-3/5 h-[228px] bg-transparent border-8 border-[#D9D9D9] absolute top-16 left-16 opacity-60 "></div>
+        <div className=" w-3/5 h-[228px] absolute top-0 left-0">
           <Image
             src="/images/section_2_image_1.jpg"
             alt="image section 2"
