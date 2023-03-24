@@ -16,11 +16,11 @@ export default function Info() {
     },
   ];
   return (
-    <div className="bg-[#DBDADA] block h-full p-4 md:p-14">
-      <h1 className="font-[#080808] text-3xl font-bold text-center mt-2  md:text-[40px] md:leading-[49px]">
+    <div className="bg-[#DBDADA] block h-full p-4 sm:p-14">
+      <h1 className="font-[#080808] text-3xl font-bold text-center mt-2  sm:text-[40px] sm:leading-[49px]">
         Benefit of Running
       </h1>
-      <div className="flex flex-col items-center justify-center gap-7 my-12  md:flex-row md:justify-between ">
+      <div className="flex flex-col items-center justify-center gap-7 my-12  sm:flex-row sm:justify-between ">
         {data.map((e) => {
           return (
             <div

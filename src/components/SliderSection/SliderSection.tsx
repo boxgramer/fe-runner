@@ -54,8 +54,8 @@ export default function SliderSection() {
     },
   ];
   return (
-    <div className="bg-[#4D4D4D] w-full h-[100vh]  p-4">
-      <h1 className="text-white font-bold text-3xl text-center mt-7 ">
+    <div className="bg-[#4D4D4D] w-full h-full  p-4 sm:p-14">
+      <h1 className="text-white font-bold text-3xl text-center mt-7 sm:leading-[48px] sm:text-[40px] ">
         Explore Nature
       </h1>
       <div className="relative">
@@ -64,31 +64,35 @@ export default function SliderSection() {
             return (
               <div key={i} className="keen-slider__slide ">
                 <div className="mt-7 mb-2">
-                  <h1 className="text-center text-[#DBDADA] font-bold text-2xl ">
+                  <h1 className="text-center text-[#DBDADA] font-bold text-2xl sm:leading-[39px] sm:text-[32px]">
                     {d.title}
                   </h1>
                 </div>
-                <div className="p-4">
-                  <p className="text-justify text-[#DBDADA] font-bold text-lg  ">
-                    {d.description}
-                  </p>
-                  <div className="w-44 h-36 mt-5 shadow-[15px_-15px_#C0C0C0] ">
-                    <Image
-                      src={d.image1.src}
-                      alt={d.image1.alt}
-                      width={100}
-                      height={100}
-                      className="object-cover h-full w-full"
-                    />
+                <div className="p-4 sm:flex sm:gap-5">
+                  <div className="sm:flex-1">
+                    <p className="text-justify text-[#DBDADA] font-bold text-lg  sm:leading-[29px] sm:text-[24px] ">
+                      {d.description}
+                    </p>
                   </div>
-                  <div className="w-44 h-36 mt-7 float-right mr-5  shadow-[15px_-15px_#C0C0C0] ">
-                    <Image
-                      src={d.image2.src}
-                      alt={d.image2.alt}
-                      width={100}
-                      height={100}
-                      className="object-cover h-full w-full"
-                    />
+                  <div className="sm:flex-1">
+                    <div className="w-44 h-36 mt-5 shadow-[15px_-15px_#C0C0C0] sm:w-60 sm:h-44">
+                      <Image
+                        src={d.image1.src}
+                        alt={d.image1.alt}
+                        width={100}
+                        height={100}
+                        className="object-cover h-full w-full"
+                      />
+                    </div>
+                    <div className="w-44 h-36 mt-7 float-right mr-5  shadow-[15px_-15px_#C0C0C0] sm:w-60 sm:h-44 ">
+                      <Image
+                        src={d.image2.src}
+                        alt={d.image2.alt}
+                        width={100}
+                        height={100}
+                        className="object-cover h-full w-full"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
