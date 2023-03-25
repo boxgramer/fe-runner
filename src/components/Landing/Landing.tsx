@@ -5,10 +5,10 @@ export default function Landing() {
     <div className="bg-black w-full h-screen top-0  p-4 flex flex-col justify-end  bg-[url('/images/original_landing.jpg')]  bg-cover bg-center    bg-no-repeat   sm:p-14 ">
       <div className="pb-24">
         <div className="mb-16">
-          <h1 className="font-bold text-[#DBDADA] text-[32px] sm:text-[40px]">
+          <h1 className="font-bold text-[#DBDADA] text-[32px] sm:text-[40px] lg: lg:text-center">
             Running Club
           </h1>
-          <p className="font-bold text-[#DBDADA] text-[24] text-justify mt-6 sm:text-[36px] w-5/6">
+          <p className="font-bold text-[#DBDADA] text-[24] text-justify mt-6 w-5/6 sm:text-[36px] lg:text-center lg:w-full  ">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor .
           </p>

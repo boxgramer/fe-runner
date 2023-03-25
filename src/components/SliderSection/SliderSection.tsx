@@ -64,18 +64,18 @@ export default function SliderSection() {
             return (
               <div key={i} className="keen-slider__slide ">
                 <div className="mt-7 mb-2">
-                  <h1 className="text-center text-[#DBDADA] font-bold text-2xl sm:leading-[39px] sm:text-[32px]">
+                  <h1 className="text-center text-[#DBDADA] font-bold text-2xl sm:leading-[39px] sm:text-[32px] lg:mb-10">
                     {d.title}
                   </h1>
                 </div>
-                <div className="p-4 sm:flex sm:gap-5">
+                <div className="p-4 sm:flex sm:gap-5 ">
                   <div className="sm:flex-1">
                     <p className="text-justify text-[#DBDADA] font-bold text-lg  sm:leading-[29px] sm:text-[24px] ">
                       {d.description}
                     </p>
                   </div>
-                  <div className="sm:flex-1">
-                    <div className="w-44 h-36 mt-5 shadow-[15px_-15px_#C0C0C0] sm:w-60 sm:h-44">
+                  <div className="sm:flex-1 lg:flex  lg:justify-center lg:gap-10   ">
+                    <div className="w-44 h-36 mt-5 shadow-[15px_-15px_#C0C0C0] sm:w-60 sm:h-44 lg:mt-0 xl:w-80 xl:h-60">
                       <Image
                         src={d.image1.src}
                         alt={d.image1.alt}
@@ -84,7 +84,7 @@ export default function SliderSection() {
                         className="object-cover h-full w-full"
                       />
                     </div>
-                    <div className="w-44 h-36 mt-7 float-right mr-5  shadow-[15px_-15px_#C0C0C0] sm:w-60 sm:h-44 ">
+                    <div className="w-44 h-36 mt-7 float-right mr-5  shadow-[15px_-15px_#C0C0C0] sm:w-60 sm:h-44 lg:mt-0  xl:w-80 xl:h-60">
                       <Image
                         src={d.image2.src}
                         alt={d.image2.alt}
