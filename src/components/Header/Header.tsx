@@ -3,9 +3,22 @@ import Image from "next/image";
 export default function Header() {
   return (
     <div
-      className={` bg-black w-full h-14 z-50 sticky top-0 border-b-2 p-2  border-[#DBDADA]`}
+      className={` bg-black w-full h-14 z-50 sticky top-0 border-b-2   border-[#DBDADA]`}
     >
-      <div className=" w-full h-full top-0  ">
+      <div className=" bg-black opacity-80 w-full h-screen top-14 absolute "></div>
+      <div className="bg-white w-1/2 h-screen absolute top-14  right-0 sm:w-1/4  xl:w-1/6">
+        <ul>
+          <li className="p-4 h-14  bg-yellow-500 hover:bg-green-500 ">Home</li>
+          <li className="p-4 h-14  bg-yellow-500 hover:bg-green-500 ">Info</li>
+          <li className="p-4 h-14  bg-yellow-500 hover:bg-green-500 ">
+            Benefit
+          </li>
+          <li className="p-4 h-14  bg-yellow-500 hover:bg-green-500 ">
+            Comunity
+          </li>
+        </ul>
+      </div>
+      <div className=" w-full h-full top-0 p-2 ">
         <div className="flex justify-between items-center  h-full">
           <div>
             <Image
@@ -17,6 +30,22 @@ export default function Header() {
             />
           </div>
           <div>
+            <button className="text-white ">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="40"
+                height="40"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
             <button className="text-black">
               <svg
                 width="40"
