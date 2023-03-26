@@ -1,6 +1,8 @@
+import useGlobalStore from "@/utils/state";
 import Image from "next/image";
 
 export default function InfoGalery() {
+  const sidebar = useGlobalStore((state: any) => state.sidebar);
   return (
     <div className="bg-[#4D4D4D] p-4  block h-full sm:p-14 lg:flex lg:flex-row-reverse  lg:gap-5 ">
       <div className="relative block mt-10 h-[275px]   sm:mt-3  sm:mb-4 sm:h-[340px] lg:w-1/2 ">
@@ -27,8 +29,8 @@ export default function InfoGalery() {
 
       <div className="mt-4 pb-24 lg:flex-1 ">
         <div className="relative h-24 sm:h-32">
-          <div className="bg-[#DBDADA] rounded-lg w-4/6 h-[72px] z-20 absolute left-0 top-0 sm:bottom-16 sm:w-3/6 lg:sm:w-[730px] ">
-            <h1 className="text-[#4D4D4D] font-bold text-xl text-justify p-5  underline  underline-offset-8 sm:text-[29px]">
+          <div className="bg-[#DBDADA] rounded-lg w-4/6 h-[72px] z-20 absolute left-0 top-0 sm:bottom-16 sm:w-3/6 lg:sm:w-[120%] ">
+            <h1 className="text-[#4D4D4D] font-bold text-xl text-justify p-5  underline  underline-offset-8 sm:text-[20px] lg:text-[29px]">
               Runnig and Walking
             </h1>
           </div>
