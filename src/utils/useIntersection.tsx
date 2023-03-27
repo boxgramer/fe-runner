@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 const useIntersection = (element: any) => {
   const [isIntersect, setIntersect] = useState(false);
@@ -24,4 +24,39 @@ const useIntersection = (element: any) => {
   return isIntersect;
 };
 
-export default useIntersection;
+const useIntersections = (
+  elements: React.RefObject<HTMLElement>[],
+  rootMargin = "100px 0px 100px 0px"
+) => {
+  useEffect(() => {
+    const callBackObserver = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        const anim = entry.target.getAttribute("data-animation");
+        if (anim) {
+          const classList = entry.target.classList;
+          if (entry.isIntersecting) {
+            if (!classList.contains(anim)) {
+              classList.add(anim);
+            }
+          } else {
+            if (classList.contains(anim)) {
+              classList.remove(anim);
+            }
+          }
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(callBackObserver, { rootMargin });
+    elements.forEach((el) => {
+      if (el.current) {
+        observer.observe(el.current);
+      }
+    });
+    return () => {
+      observer.disconnect();
+    };
+  });
+};
+
+export { useIntersection, useIntersections };

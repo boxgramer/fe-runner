@@ -1,9 +1,12 @@
 import Image from "next/image";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { useIntersections } from "@/utils/useIntersection";
 
 export default function SliderSection() {
+  const refList = new Array();
+
   const [currentSlide, setCurrentSlide] = useState(0);
   const [loaded, setLoaded] = useState(false);
   const [sliderRef, instanceRef] = useKeenSlider({
@@ -53,6 +56,23 @@ export default function SliderSection() {
       },
     },
   ];
+  dataSlider.map((d) => {
+    const data = {
+      titleRef: useRef(null),
+      descriptionRef: useRef(null),
+      image1Ref: useRef(null),
+      image2Ref: useRef(null),
+    };
+    refList.push(data);
+  });
+  if (dataSlider.length > 0) {
+    useIntersections([
+      refList[0].titleRef,
+      refList[0].descriptionRef,
+      refList[0].image1Ref,
+      refList[0].image2Ref,
+    ]);
+  }
   return (
     <div className="bg-[#4D4D4D] w-full h-full  p-4 sm:p-14">
       <h1 className="text-white font-bold text-3xl text-center mt-7 sm:leading-[48px] sm:text-[40px] ">
@@ -64,18 +84,30 @@ export default function SliderSection() {
             return (
               <div key={i} className="keen-slider__slide ">
                 <div className="mt-7 mb-2">
-                  <h1 className="text-center text-[#DBDADA] font-bold text-2xl sm:leading-[39px] sm:text-[32px] lg:mb-10">
+                  <h1
+                    ref={refList[i].titleRef}
+                    data-animation="animate-down-to-top"
+                    className="text-center text-[#DBDADA] font-bold text-2xl sm:leading-[39px] sm:text-[32px] lg:mb-10"
+                  >
                     {d.title}
                   </h1>
                 </div>
                 <div className="p-4 sm:flex sm:gap-5 ">
                   <div className="sm:flex-1">
-                    <p className="text-justify text-[#DBDADA] font-bold text-lg  sm:leading-[29px] sm:text-[24px] ">
+                    <p
+                      ref={refList[i].descriptionRef}
+                      data-animation="animate-down-to-top"
+                      className=" text-justify text-[#DBDADA] font-bold text-lg  sm:leading-[29px] sm:text-[24px] "
+                    >
                       {d.description}
                     </p>
                   </div>
                   <div className="sm:flex-1 lg:flex  lg:justify-center lg:gap-10   ">
-                    <div className="w-44 h-36 mt-5 shadow-[15px_-15px_#C0C0C0] sm:w-60 sm:h-44 lg:mt-0 xl:w-80 xl:h-60">
+                    <div
+                      ref={refList[i].image1Ref}
+                      data-animation="animate-down-to-top"
+                      className="w-44 h-36 mt-5 shadow-[15px_-15px_#C0C0C0] sm:w-60 sm:h-44 lg:mt-0 xl:w-80 xl:h-60"
+                    >
                       <Image
                         src={d.image1.src}
                         alt={d.image1.alt}
@@ -84,7 +116,11 @@ export default function SliderSection() {
                         className="object-cover h-full w-full"
                       />
                     </div>
-                    <div className="w-44 h-36 mt-7 float-right mr-5  shadow-[15px_-15px_#C0C0C0] sm:w-60 sm:h-44 lg:mt-0  xl:w-80 xl:h-60">
+                    <div
+                      ref={refList[i].image2Ref}
+                      data-animation="animate-down-to-top"
+                      className="w-44 h-36 mt-7 float-right mr-5  shadow-[15px_-15px_#C0C0C0] sm:w-60 sm:h-44 lg:mt-0  xl:w-80 xl:h-60"
+                    >
                       <Image
                         src={d.image2.src}
                         alt={d.image2.alt}

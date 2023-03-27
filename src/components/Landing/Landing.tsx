@@ -1,14 +1,13 @@
 import Image from "next/image";
 import { useEffect, useRef } from "react";
-import useIntersection from "@/utils/useIntersection";
+import { useIntersection, useIntersections } from "@/utils/useIntersection";
 
 export default function Landing() {
   const runRef = useRef(null);
   const briefRef = useRef(null);
   const buttonRef = useRef(null);
-  const runInViewPort = useIntersection(runRef);
-  const briefInViewPort = useIntersection(briefRef);
-  const buttonInViewPort = useIntersection(buttonRef);
+
+  useIntersections([runRef, briefRef, buttonRef]);
 
   return (
     <div className="bg-black w-full h-screen top-0  p-4 flex flex-col justify-end  bg-[url('/images/original_landing.jpg')]  bg-cover bg-center    bg-no-repeat   sm:p-14 ">
