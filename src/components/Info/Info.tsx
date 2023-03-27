@@ -2,9 +2,14 @@ import { useIntersections } from "@/utils/useIntersection";
 import Image from "next/image";
 import { createRef, useEffect, useRef } from "react";
 
-export default function Info() {
-  const refData = new Array();
-  let data = [
+/**
+ * 
+ * @param {MutableRefObject} id 
+ * @param {JSON} data
+ * @returns 
+ * @example
+ * const infoRef = useRef(null);
+ * const dataInfo= [
     {
       image: "/images/heart-beat.png",
       alt: "heart beat",
@@ -21,18 +26,28 @@ export default function Info() {
       title: "release strees",
     },
   ];
-  data.map((e) => {
+
+
+  <Info id={infoRef} data={dataInfo} />
+
+
+
+  */
+
+export default function Info({ id, data }: any) {
+  const refData = new Array();
+  data.map((e: any) => {
     refData.push(useRef(null));
   });
   useIntersections(refData);
 
   return (
-    <div className="bg-[#DBDADA] block h-full p-4 sm:p-14">
+    <div ref={id} className="bg-[#DBDADA] block h-full p-4 sm:p-14">
       <h1 className="font-[#080808] text-3xl font-bold text-center mt-2  sm:text-[40px] sm:leading-[49px]">
         Benefit of Running
       </h1>
       <div className="flex flex-col items-center justify-center gap-7 my-12  sm:flex-row sm:justify-between lg:justify-center lg:gap-24 lg:my-44 ">
-        {data.map((e, i) => {
+        {data.map((e: any, i: number) => {
           return (
             <div
               ref={refData[i]}

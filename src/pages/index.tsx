@@ -8,10 +8,118 @@ import InfoGalery from "@/components/InfoGalery";
 import Info from "@/components/Info";
 import SliderSection from "@/components/SliderSection";
 import Footer from "@/components/Footer";
+import { useRef } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  const homeRef = useRef(null);
+  const infoRef = useRef(null);
+  const benefitRef = useRef(null);
+  const slidereRef = useRef(null);
+  const menus = [
+    {
+      label: "Home",
+      ref: homeRef,
+    },
+    {
+      label: "Info",
+      ref: infoRef,
+    },
+    {
+      label: "Benefit",
+      ref: benefitRef,
+    },
+    {
+      label: "Comunity",
+      ref: slidereRef,
+    },
+  ];
+  const home = {
+    title: "running club",
+    description:
+      " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doe iusmod tempor",
+    button: {
+      title: "Start Exploring",
+      link: "#",
+    },
+  };
+
+  const infoGalery = {
+    title: "Runnig and Walking",
+    description:
+      " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do" +
+      "eiusmod tempor incididunt ut labore et dolore magna aliqua. Eros in " +
+      "cursus turpis massa tincidunt dui ut. Id semper risus in hendrerit " +
+      "gravida rutrum quisque non. Laoreet suspendisse interdum consectetur " +
+      "libero id. Vel risus commodo viverra maecenas accumsan lacus vel " +
+      "facilisis volutpat. ",
+    image1: {
+      src: "/images/section_2_image_1.jpg",
+      alt: "image section 2",
+    },
+    image2: {
+      src: "/images/section_2_image_2.jpg",
+      alt: "image section 2",
+    },
+  };
+  const dataBenefit = [
+    {
+      image: "/images/heart-beat.png",
+      alt: "heart beat",
+      title: "heart beat",
+    },
+    {
+      image: "/images/bmi.png",
+      alt: "bmi",
+      title: "weight body",
+    },
+    {
+      image: "/images/mental-health.png",
+      alt: "mental health",
+      title: "release strees",
+    },
+  ];
+
+  const dataSlider = [
+    {
+      title: "Running On Road",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do" +
+        "eiusmod tempor incididunt ut labore et dolore magna aliqua." +
+        " Dolor magna eget est lorem ipsum dolor sit amet consectetur." +
+        " Iaculis eu non diam phasellus vestibulum. Eleifend quam" +
+        " adipiscing vitae proin sagittis nisl rhoncus. Sit amet nisl" +
+        " suscipit",
+      image1: {
+        src: "/images/section_4_image_1.jpg",
+        alt: "image 1",
+      },
+      image2: {
+        src: "/images/section_4_image_2.jpg",
+        alt: "image 2",
+      },
+    },
+    {
+      title: "Running On Road 2",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do" +
+        "eiusmod tempor incididunt ut labore et dolore magna aliqua." +
+        " Dolor magna eget est lorem ipsum dolor sit amet consectetur." +
+        " Iaculis eu non diam phasellus vestibulum. Eleifend quam" +
+        " adipiscing vitae proin sagittis nisl rhoncus. Sit amet nisl" +
+        " suscipit",
+      image1: {
+        src: "/images/section_4_image_2.jpg",
+        alt: "image 1",
+      },
+      image2: {
+        src: "/images/section_4_image_1.jpg",
+        alt: "image 2",
+      },
+    },
+  ];
+
   return (
     <>
       <Head>
@@ -22,11 +130,11 @@ export default function Home() {
       </Head>
       <main className={inter.className}>
         <div className="relative">
-          <Header />
-          <Landing />
-          <InfoGalery />
-          <Info />
-          <SliderSection />
+          <Header id="header" menus={menus} />
+          <Landing id={homeRef} data={home} />
+          <InfoGalery id={infoRef} data={infoGalery} />
+          <Info id={benefitRef} data={dataBenefit} />
+          <SliderSection id={slidereRef} data={dataSlider} />
           <Footer />
         </div>
       </main>

@@ -2,13 +2,34 @@ import useGlobalStore from "@/utils/state";
 import { stat } from "fs";
 import Image from "next/image";
 
-export default function Header(menus: any) {
+/**
+ *
+ * data menu for header
+ * @param {Array.<any>} menus
+ * id for tag header
+ * @param {string} id
+ * @returns
+ * setup menu header with data json
+ * @example
+ * <Header menus={[
+ *  {
+ *    label : 'home',
+ *    link  : '#'
+ *  },
+ *  {
+ *    label : 'info',
+ *    link  : '#'
+ *  },
+ * ]} />
+ */
+export default function Header({ id, menus }: any) {
   const sidebar = useGlobalStore((state: any) => state.sidebar);
   const onSide = useGlobalStore((state: any) => state.onSide);
   // const sidebar = useGlobalStore((state: any) => state.sidebar);
 
   return (
     <div
+      id={id}
       className={` bg-black w-full h-14 z-50 sticky top-0 border-b-2   border-[#DBDADA]`}
     >
       <div
@@ -22,7 +43,23 @@ export default function Header(menus: any) {
         }`}
       >
         <ul>
-          <li className="p-4 h-14  bg-[#7F7F7F] hover:bg-[#DBDADA] hover:text-[#4D4D4D] text-[#DBDADA] ">
+          {menus.map((menu: any, i: number) => {
+            return (
+              <li
+                key={i}
+                className="p-4 h-14  bg-[#7F7F7F] hover:bg-[#DBDADA] hover:text-[#4D4D4D] text-[#DBDADA] "
+                onClick={() => {
+                  menu.ref?.current.scrollIntoView({
+                    behavior: "smooth",
+                    block: "end",
+                  });
+                }}
+              >
+                {menu.label}
+              </li>
+            );
+          })}
+          {/* <li className="p-4 h-14  bg-[#7F7F7F] hover:bg-[#DBDADA] hover:text-[#4D4D4D] text-[#DBDADA] ">
             Home
           </li>
           <li className="p-4 h-14  bg-[#7F7F7F] hover:bg-[#DBDADA] hover:text-[#4D4D4D] text-[#DBDADA] ">
@@ -33,7 +70,7 @@ export default function Header(menus: any) {
           </li>
           <li className="p-4 h-14  bg-[#7F7F7F] hover:bg-[#DBDADA] hover:text-[#4D4D4D] text-[#DBDADA]">
             Comunity
-          </li>
+          </li> */}
         </ul>
       </div>
       <div className=" w-full h-full top-0 p-2 ">

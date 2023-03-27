@@ -4,21 +4,14 @@ import "keen-slider/keen-slider.min.css";
 import { useRef, useState } from "react";
 import { useIntersections } from "@/utils/useIntersection";
 
-export default function SliderSection() {
-  const refList = new Array();
-
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [loaded, setLoaded] = useState(false);
-  const [sliderRef, instanceRef] = useKeenSlider({
-    initial: 0,
-    slideChanged(slider) {
-      setCurrentSlide(slider.track.details.rel);
-    },
-    created() {
-      setLoaded(true);
-    },
-  });
-  let dataSlider = [
+/**
+ * 
+ * @param {MutableRefObject} id 
+ * @param {JSON} data
+ * @returns 
+ * @example
+ * const slidereRef = useRef(null);
+ * const dataSlider = [
     {
       title: "Running On Road",
       description:
@@ -56,7 +49,28 @@ export default function SliderSection() {
       },
     },
   ];
-  dataSlider.map((d) => {
+
+  <SliderSection id={slidereRef} data={dataSlider} />
+
+
+
+  */
+
+export default function SliderSection({ id, data }: any) {
+  const refList = new Array();
+
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [loaded, setLoaded] = useState(false);
+  const [sliderRef, instanceRef] = useKeenSlider({
+    initial: 0,
+    slideChanged(slider) {
+      setCurrentSlide(slider.track.details.rel);
+    },
+    created() {
+      setLoaded(true);
+    },
+  });
+  data.map((d: any) => {
     const data = {
       titleRef: useRef(null),
       descriptionRef: useRef(null),
@@ -65,7 +79,7 @@ export default function SliderSection() {
     };
     refList.push(data);
   });
-  if (dataSlider.length > 0) {
+  if (data.length > 0) {
     useIntersections([
       refList[0].titleRef,
       refList[0].descriptionRef,
@@ -74,13 +88,13 @@ export default function SliderSection() {
     ]);
   }
   return (
-    <div className="bg-[#4D4D4D] w-full h-full  p-4 sm:p-14">
+    <div ref={id} className="bg-[#4D4D4D] w-full h-full  p-4 sm:p-14">
       <h1 className="text-white font-bold text-3xl text-center mt-7 sm:leading-[48px] sm:text-[40px] ">
         Explore Nature
       </h1>
       <div className="relative">
         <div ref={sliderRef} className="keen-slider">
-          {dataSlider.map((d, i) => {
+          {data.map((d: any, i: number) => {
             return (
               <div key={i} className="keen-slider__slide ">
                 <div className="mt-7 mb-2">
