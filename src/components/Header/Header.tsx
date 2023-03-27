@@ -2,22 +2,23 @@ import useGlobalStore from "@/utils/state";
 import { stat } from "fs";
 import Image from "next/image";
 
-export default function Header() {
+export default function Header(menus: any) {
   const sidebar = useGlobalStore((state: any) => state.sidebar);
   const onSide = useGlobalStore((state: any) => state.onSide);
   // const sidebar = useGlobalStore((state: any) => state.sidebar);
+
   return (
     <div
       className={` bg-black w-full h-14 z-50 sticky top-0 border-b-2   border-[#DBDADA]`}
     >
       <div
         className={` bg-black opacity-80 w-full h-screen top-14 absolute ${
-          sidebar ? "block" : "hidden"
+          sidebar ? "block animate-fade-in-80" : "hidden"
         } `}
       ></div>
       <div
         className={`bg-[#AAAAAA] w-1/2 h-screen absolute top-14  right-0 sm:w-1/4  xl:w-1/6 ${
-          sidebar ? "block" : "hidden"
+          sidebar ? "block animate-right-to-left  " : "hidden"
         }`}
       >
         <ul>
@@ -48,7 +49,7 @@ export default function Header() {
           </div>
           <div>
             {sidebar ? (
-              <button className="text-white " onClick={onSide}>
+              <button className="text-white  " onClick={onSide}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="40"
