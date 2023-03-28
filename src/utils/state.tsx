@@ -2,7 +2,7 @@ import { create } from "zustand";
 
 const useGlobalStore = create((set) => ({
   sidebar: false,
-  onSide: () => set((state: any) => ({ sidebar: !state.sidebar })),
+  onSide: (value: any) => set((state: any) => ({ sidebar: value })),
 }));
 
 export default useGlobalStore;

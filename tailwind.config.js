@@ -23,10 +23,18 @@ module.exports = {
         },
         rightToLeft: {
           "0%": {
-            transform: "translateX(200px)",
+            transform: "translate(200px,0)",
           },
           "100%": {
-            transform: "translateX(0)",
+            transform: "translate(0,0)",
+          },
+        },
+        leftToRight: {
+          "0%": {
+            transform: "translate(0,0)",
+          },
+          "100%": {
+            transform: "translate(200px,0)",
           },
         },
         fadeIn80: {
@@ -51,6 +59,7 @@ module.exports = {
         "fade-in-80": "fadeIn80 1s ease-in",
         "fade-out-80": "fadeOut80 1s ease-out",
         "right-to-left": "rightToLeft 1s cubic-bezier(.51,.01,.27,1.04)",
+        "left-to-right": "leftToRight 1s cubic-bezier(.51,.01,.27,1.04)",
       },
     },
   },

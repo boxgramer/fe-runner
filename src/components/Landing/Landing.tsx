@@ -56,6 +56,12 @@ export default function Landing({ id, data }: any) {
           <button
             ref={buttonRef}
             data-animation="animate-down-to-top"
+            onClick={() => {
+              data.button.ref?.current.scrollIntoView({
+                behavior: "smooth",
+                block: "end",
+              });
+            }}
             className="text-[#DBDADA] text-center w-full h-full bg-[#7F7F7F] rounded-lg  text-[20px] font-bold  sm:text-[32px] animate-down-to-top "
           >
             {data.button.title}

@@ -1,6 +1,7 @@
 import useGlobalStore from "@/utils/state";
 import { stat } from "fs";
 import Image from "next/image";
+import { useRef } from "react";
 
 /**
  *
@@ -25,7 +26,38 @@ import Image from "next/image";
 export default function Header({ id, menus }: any) {
   const sidebar = useGlobalStore((state: any) => state.sidebar);
   const onSide = useGlobalStore((state: any) => state.onSide);
-  // const sidebar = useGlobalStore((state: any) => state.sidebar);
+
+  const sidebarRef = useRef(null);
+  const overlayRef = useRef(null);
+
+  const showAnimation = (el: any) => {
+    const classList = el.current?.classList;
+    const animShow = el.current.dataset.animationShow;
+    const animHide = el.current.dataset.animationHide;
+    if (classList.contains(animHide) || classList.contains("hidden")) {
+      if (classList.contains("hidden")) classList.remove("hidden");
+      if (classList.contains(animHide)) classList.remove(animHide);
+      classList.add(animShow);
+    }
+  };
+  const hideAnimation = (el: any) => {
+    const classList = el.current.classList;
+    const animHide = el.current.dataset.animationHide;
+    const animShow = el.current.dataset.animationShow;
+    if (classList.contains(animShow)) {
+      classList.remove(animShow);
+      classList.add(animHide);
+    }
+  };
+
+  const endAnimation = (e: any) => {
+    const classList = e.target.classList;
+    if (!sidebar) {
+      if (!classList.contains("hidden")) {
+        classList.add("hidden");
+      }
+    }
+  };
 
   return (
     <div
@@ -33,14 +65,19 @@ export default function Header({ id, menus }: any) {
       className={` bg-black w-full h-14 z-50 sticky top-0 border-b-2   border-[#DBDADA]`}
     >
       <div
-        className={` bg-black opacity-80 w-full h-screen top-14 absolute ${
-          sidebar ? "block animate-fade-in-80" : "hidden"
-        } `}
+        ref={overlayRef}
+        data-animation-show="animate-fade-in-80"
+        data-animation-hide="animate-fade-out-80"
+        onAnimationEnd={endAnimation}
+        className=" bg-black opacity-80 w-full h-screen top-14 absolute hidden"
       ></div>
+
       <div
-        className={`bg-[#AAAAAA] w-1/2 h-screen absolute top-14  right-0 sm:w-1/4  xl:w-1/6 ${
-          sidebar ? "block animate-right-to-left  " : "hidden"
-        }`}
+        ref={sidebarRef}
+        data-animation-show="animate-right-to-left"
+        data-animation-hide="animate-left-to-right"
+        onAnimationEnd={endAnimation}
+        className="bg-[#AAAAAA] w-1/2 h-screen absolute top-14  right-0 sm:w-1/4  xl:w-1/6 hidden"
       >
         <ul>
           {menus.map((menu: any, i: number) => {
@@ -49,6 +86,10 @@ export default function Header({ id, menus }: any) {
                 key={i}
                 className="p-4 h-14  bg-[#7F7F7F] hover:bg-[#DBDADA] hover:text-[#4D4D4D] text-[#DBDADA] "
                 onClick={() => {
+                  // onSide(false);
+                  // hideAnimation(sidebarRef);
+                  // hideAnimation(overlayRef);
+
                   menu.ref?.current.scrollIntoView({
                     behavior: "smooth",
                     block: "end",
@@ -59,18 +100,6 @@ export default function Header({ id, menus }: any) {
               </li>
             );
           })}
-          {/* <li className="p-4 h-14  bg-[#7F7F7F] hover:bg-[#DBDADA] hover:text-[#4D4D4D] text-[#DBDADA] ">
-            Home
-          </li>
-          <li className="p-4 h-14  bg-[#7F7F7F] hover:bg-[#DBDADA] hover:text-[#4D4D4D] text-[#DBDADA] ">
-            Info
-          </li>
-          <li className="p-4 h-14  bg-[#7F7F7F] hover:bg-[#DBDADA] hover:text-[#4D4D4D] text-[#DBDADA] ">
-            Benefit
-          </li>
-          <li className="p-4 h-14  bg-[#7F7F7F] hover:bg-[#DBDADA] hover:text-[#4D4D4D] text-[#DBDADA]">
-            Comunity
-          </li> */}
         </ul>
       </div>
       <div className=" w-full h-full top-0 p-2 ">
@@ -86,7 +115,14 @@ export default function Header({ id, menus }: any) {
           </div>
           <div>
             {sidebar ? (
-              <button className="text-white  " onClick={onSide}>
+              <button
+                className="text-white  "
+                onClick={() => {
+                  onSide(false);
+                  hideAnimation(sidebarRef);
+                  hideAnimation(overlayRef);
+                }}
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="40"
@@ -103,7 +139,14 @@ export default function Header({ id, menus }: any) {
                 </svg>
               </button>
             ) : (
-              <button className="text-black" onClick={onSide}>
+              <button
+                className="text-black"
+                onClick={() => {
+                  onSide(true);
+                  showAnimation(sidebarRef);
+                  showAnimation(overlayRef);
+                }}
+              >
                 <svg
                   width="40"
                   height="40"
