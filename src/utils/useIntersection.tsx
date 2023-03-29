@@ -11,7 +11,7 @@ const useIntersection = (element: any) => {
     });
 
     element.current && observer.observe(element.current);
-  }, []);
+  }, [element]);
   if (isIntersect) {
     if (!classList?.contains(anim)) {
       element.current.classList.add(anim);
@@ -26,9 +26,11 @@ const useIntersection = (element: any) => {
 
 const useIntersections = (
   elements: React.RefObject<HTMLElement>[],
-  rootMargin = "100px 0px 100px 0px"
+  rootMargin = "100px 0px 100px 0px",
+  active: boolean = true
 ) => {
   useEffect(() => {
+    if (!active) return;
     const callBackObserver = (entries: IntersectionObserverEntry[]) => {
       entries.forEach((entry) => {
         const anim = entry.target.getAttribute("data-animation");
@@ -56,7 +58,7 @@ const useIntersections = (
     return () => {
       observer.disconnect();
     };
-  });
+  }, [active, elements, rootMargin]);
 };
 
 export { useIntersection, useIntersections };

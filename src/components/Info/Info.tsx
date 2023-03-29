@@ -35,11 +35,15 @@ import { createRef, useEffect, useRef } from "react";
   */
 
 export default function Info({ id, data }: any) {
-  const refData = new Array();
+  // const refData = new Array();
+  const refs = useRef([]);
+  refs.current = data.map(
+    (e: any, i: number) => refs.current[i] ?? createRef()
+  );
   data.map((e: any) => {
-    refData.push(useRef(null));
+    // refData.push(useRef(null));
   });
-  useIntersections(refData);
+  useIntersections(refs.current);
 
   return (
     <div ref={id} className="bg-[#DBDADA] block h-full p-4 sm:p-14">
@@ -50,7 +54,7 @@ export default function Info({ id, data }: any) {
         {data.map((e: any, i: number) => {
           return (
             <div
-              ref={refData[i]}
+              ref={refs.current[i]}
               key={e.alt}
               data-animation="animate-down-to-top"
               className="border-8 border-solid border-black h-44 w-44 rounded-[50px] p-2 lg:h-[259px] lg:w-[328px]"
