@@ -89,7 +89,7 @@ export default function SliderSection({ id, data }: any) {
   }
   return (
     <div ref={id} className="bg-[#4D4D4D] w-full h-full  p-4 sm:p-14">
-      <h1 className="text-white font-bold text-3xl text-center mt-7 sm:leading-[48px] sm:text-[40px] ">
+      <h1 className="text-white font-bold text-3xl text-center mt-10 sm:leading-[48px] sm:text-[40px] ">
         Explore Nature
       </h1>
       <div className="relative">

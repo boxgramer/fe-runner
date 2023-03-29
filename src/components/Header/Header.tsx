@@ -62,7 +62,12 @@ export default function Header({ id, menus }: any) {
   return (
     <div
       id={id}
-      className={` bg-black w-full h-14 z-50 sticky top-0 border-b-2   border-[#DBDADA]`}
+      onClick={() => {
+        onSide(false);
+        hideAnimation(sidebarRef);
+        hideAnimation(overlayRef);
+      }}
+      className={` bg-black w-full h-14 z-50 fixed top-0 border-b-2   border-[#DBDADA]`}
     >
       <div
         ref={overlayRef}
@@ -92,7 +97,7 @@ export default function Header({ id, menus }: any) {
 
                   menu.ref?.current.scrollIntoView({
                     behavior: "smooth",
-                    block: "end",
+                    block: "start",
                   });
                 }}
               >
@@ -117,7 +122,8 @@ export default function Header({ id, menus }: any) {
             {sidebar ? (
               <button
                 className="text-white  "
-                onClick={() => {
+                onClick={(e) => {
+                  e.stopPropagation();
                   onSide(false);
                   hideAnimation(sidebarRef);
                   hideAnimation(overlayRef);
@@ -141,7 +147,8 @@ export default function Header({ id, menus }: any) {
             ) : (
               <button
                 className="text-black"
-                onClick={() => {
+                onClick={(e) => {
+                  e.stopPropagation();
                   onSide(true);
                   showAnimation(sidebarRef);
                   showAnimation(overlayRef);

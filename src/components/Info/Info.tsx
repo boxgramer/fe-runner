@@ -43,7 +43,7 @@ export default function Info({ id, data }: any) {
 
   return (
     <div ref={id} className="bg-[#DBDADA] block h-full p-4 sm:p-14">
-      <h1 className="font-[#080808] text-3xl font-bold text-center mt-2  sm:text-[40px] sm:leading-[49px]">
+      <h1 className="font-[#080808] text-3xl font-bold text-center mt-16  sm:text-[40px] sm:leading-[49px]">
         Benefit of Running
       </h1>
       <div className="flex flex-col items-center justify-center gap-7 my-12  sm:flex-row sm:justify-between lg:justify-center lg:gap-24 lg:my-44 ">

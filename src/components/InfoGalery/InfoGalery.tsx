@@ -52,7 +52,7 @@ export default function InfoGalery({ id, data }: any) {
       ref={id}
       className="bg-[#4D4D4D] p-4  block h-full sm:p-14 lg:flex lg:flex-row-reverse  lg:gap-5 "
     >
-      <div className="relative block mt-10 h-[275px]   sm:mt-3  sm:mb-4 sm:h-[340px] lg:w-1/2 ">
+      <div className="relative block mt-16 h-[275px]   sm:mt-3  sm:mb-4 sm:h-[340px] lg:w-1/2  ">
         <div
           ref={centerBoxRef}
           data-animation="animate-down-to-top"
