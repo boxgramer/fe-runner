@@ -53,8 +53,6 @@ export default function SliderContent({
             <Image
               src={image1.src}
               alt={image1.alt}
-              width={100}
-              height={100}
               className="object-cover h-full w-full"
             />
           </div>
@@ -66,8 +64,6 @@ export default function SliderContent({
             <Image
               src={image2.src}
               alt={image2.alt}
-              width={100}
-              height={100}
               className="object-cover h-full w-full"
             />
           </div>

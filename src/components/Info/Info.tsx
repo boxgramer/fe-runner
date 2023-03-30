@@ -63,8 +63,6 @@ export default function Info({ id, data }: any) {
                 <Image
                   src={e.image}
                   alt={e.alt}
-                  width={50}
-                  height={50}
                   className="object-cover h-full w-full"
                 />
               </div>

@@ -33,7 +33,7 @@ export default function Landing({ id, data }: any) {
   return (
     <div
       ref={id}
-      className="bg-black w-full h-screen top-0  p-4 flex flex-col justify-end  bg-[url('/images/original_landing.jpg')]  bg-cover bg-center    bg-no-repeat   sm:p-14 "
+      className={`bg-black w-full h-screen top-0  p-4 flex flex-col justify-end ${data.backgroundClass}  bg-cover bg-center    bg-no-repeat   sm:p-14 `}
     >
       <div className="pb-24">
         <div className="mb-16">

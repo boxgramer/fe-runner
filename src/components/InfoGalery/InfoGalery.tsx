@@ -66,8 +66,6 @@ export default function InfoGalery({ id, data }: any) {
           <Image
             src={data.image1.src}
             alt={data.image1.alt}
-            width={100}
-            height={100}
             className="object-cover w-full h-full"
           />
         </div>
@@ -79,8 +77,6 @@ export default function InfoGalery({ id, data }: any) {
           <Image
             src={data.image2.src}
             alt={data.image2.alt}
-            width={100}
-            height={100}
             className="object-cover w-full h-full"
           />
         </div>
