@@ -29,11 +29,11 @@ export default function Landing({ id, data }: any) {
   const buttonRef = useRef(null);
 
   useIntersections([runRef, briefRef, buttonRef]);
-
+  //
   return (
     <div
       ref={id}
-      className={`bg-black w-full h-screen top-0  p-4 flex flex-col justify-end ${data.backgroundClass}  bg-cover bg-center    bg-no-repeat   sm:p-14 `}
+      className="bg-black w-full h-screen top-0  p-4 flex flex-col justify-end  bg-landing-background bg-cover bg-center    bg-no-repeat   sm:p-14 "
     >
       <div className="pb-24">
         <div className="mb-16">
@@ -54,6 +54,7 @@ export default function Landing({ id, data }: any) {
         </div>
         <div className="w-3/6 mx-auto  sm:h-[82px] ">
           <button
+            aria-labelledby="explore"
             ref={buttonRef}
             data-animation="animate-down-to-top"
             onClick={() => {
@@ -62,7 +63,7 @@ export default function Landing({ id, data }: any) {
                 block: "end",
               });
             }}
-            className="text-[#DBDADA] text-center w-full h-full bg-[#7F7F7F] rounded-lg  text-[20px] font-bold  sm:text-[32px] animate-down-to-top "
+            className="text-black text-center w-full h-full bg-[#ffff] rounded-lg  text-[20px] font-bold  sm:text-[32px] animate-down-to-top "
           >
             {data.button.title}
           </button>

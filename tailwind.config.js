@@ -10,6 +10,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        "landing-background": "url('/images/original_landing.webp')",
+      },
       keyframes: {
         downToTop: {
           "0%": {

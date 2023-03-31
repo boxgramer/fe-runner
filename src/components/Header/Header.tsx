@@ -12,7 +12,7 @@ import { useRef } from "react";
  * @returns
  * setup menu header with data json
  * @example
- * <Header menus={[
+ * <Header data={{logo: {src: image , alt: imgalt} ,menus: [
  *  {
  *    label : 'home',
  *    link  : '#'
@@ -21,9 +21,9 @@ import { useRef } from "react";
  *    label : 'info',
  *    link  : '#'
  *  },
- * ]} />
+ * ]}} />
  */
-export default function Header({ id, menus }: any) {
+export default function Header({ id, data }: any) {
   const sidebar = useGlobalStore((state: any) => state.sidebar);
   const onSide = useGlobalStore((state: any) => state.onSide);
 
@@ -85,7 +85,7 @@ export default function Header({ id, menus }: any) {
         className="bg-[#AAAAAA] w-1/2 h-screen absolute top-14  right-0 sm:w-1/4  xl:w-1/6 hidden"
       >
         <ul>
-          {menus.map((menu: any, i: number) => {
+          {data.menus.map((menu: any, i: number) => {
             return (
               <li
                 key={i}
@@ -116,11 +116,13 @@ export default function Header({ id, menus }: any) {
               width={100}
               height={100}
               className=""
+              loading="lazy"
             />
           </div>
           <div>
             {sidebar ? (
               <button
+                aria-label="close menu"
                 className="text-white  "
                 onClick={(e) => {
                   e.stopPropagation();
@@ -147,6 +149,7 @@ export default function Header({ id, menus }: any) {
             ) : (
               <button
                 className="text-black"
+                aria-label="show menu"
                 onClick={(e) => {
                   e.stopPropagation();
                   onSide(true);

@@ -66,7 +66,12 @@ export default function InfoGalery({ id, data }: any) {
           <Image
             src={data.image1.src}
             alt={data.image1.alt}
+            fill
+            sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              30vw"
             className="object-cover w-full h-full"
+            loading="lazy"
           />
         </div>
         <div
@@ -77,6 +82,11 @@ export default function InfoGalery({ id, data }: any) {
           <Image
             src={data.image2.src}
             alt={data.image2.alt}
+            fill
+            sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              30vw"
+            loading="lazy"
             className="object-cover w-full h-full"
           />
         </div>

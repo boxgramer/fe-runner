@@ -1,50 +1,62 @@
 import Head from "next/head";
-import Image from "next/image";
+// import Image from "next/image";
 import { Inter } from "next/font/google";
-import styles from "@/styles/Home.module.css";
+// import styles from "@/styles/Home.module.css";
 import Header from "@/components/Header";
 import Landing from "@/components/Landing";
-import InfoGalery from "@/components/InfoGalery";
+// import InfoGalery from "@/components/InfoGalery";
 import Info from "@/components/Info";
-import SliderSection from "@/components/SliderSection";
+// import SliderSection from "@/components/SliderSection";
 import Footer from "@/components/Footer";
 import { useRef } from "react";
 
-import section2Image1 from "../../public/images/section_2_image_1.jpg";
-import section2Image2 from "../../public/images/section_2_image_2.jpg";
+import logo from "../../public/images/landing_logo.png";
+import section2Image1 from "../../public/images/section_2_image_1.webp";
+import section2Image2 from "../../public/images/section_2_image_2.webp";
 import heartBeat from "../../public/images/heart-beat.png";
 import bmi from "../../public/images/bmi.png";
 import mentalHeath from "../../public/images/mental-health.png";
-import section4Image11 from "../../public/images/section_4_image_1.jpg";
-import section4Image12 from "../../public/images/section_4_image_2.jpg";
-import section4Image21 from "../../public/images/section_4_image_2.jpg";
-import section4Image22 from "../../public/images/section_4_image_1.jpg";
+import section4Image11 from "../../public/images/section_4_image_1.webp";
+import section4Image12 from "../../public/images/section_4_image_2.webp";
+import section4Image21 from "../../public/images/section_4_image_2.webp";
+import section4Image22 from "../../public/images/section_4_image_1.webp";
+import dynamic from "next/dynamic";
 
 const inter = Inter({ subsets: ["latin"] });
+
+const DynamicSlider = dynamic(() => import("@/components/SliderSection"), {
+  loading: () => <p>loading...</p>,
+});
+const DynamicInfoGalery = dynamic(() => import("@/components/InfoGalery"), {
+  loading: () => <p>loading...</p>,
+});
 
 export default function Home() {
   const homeRef = useRef(null);
   const infoRef = useRef(null);
   const benefitRef = useRef(null);
   const slidereRef = useRef(null);
-  const menus = [
-    {
-      label: "Home",
-      ref: homeRef,
-    },
-    {
-      label: "Info",
-      ref: infoRef,
-    },
-    {
-      label: "Benefit",
-      ref: benefitRef,
-    },
-    {
-      label: "Comunity",
-      ref: slidereRef,
-    },
-  ];
+  const headerData = {
+    logo: { src: logo, alt: "logo" },
+    menus: [
+      {
+        label: "Home",
+        ref: homeRef,
+      },
+      {
+        label: "Info",
+        ref: infoRef,
+      },
+      {
+        label: "Benefit",
+        ref: benefitRef,
+      },
+      {
+        label: "Comunity",
+        ref: slidereRef,
+      },
+    ],
+  };
   const home = {
     title: "running club",
     description:
@@ -53,7 +65,6 @@ export default function Home() {
       title: "Start Exploring",
       ref: slidereRef,
     },
-    backgroundClass: " bg-[url('/images/original_landing.jpg')]",
   };
 
   const infoGalery = {
@@ -145,11 +156,11 @@ export default function Home() {
       </Head>
       <main className={inter.className}>
         <div className="relative">
-          <Header id="header" menus={menus} />
+          <Header id="header" data={headerData} />
           <Landing id={homeRef} data={home} />
-          <InfoGalery id={infoRef} data={infoGalery} />
+          <DynamicInfoGalery id={infoRef} data={infoGalery} />
           <Info id={benefitRef} data={dataBenefit} />
-          <SliderSection id={slidereRef} data={dataSlider} />
+          <DynamicSlider id={slidereRef} data={dataSlider} />
           <Footer />
         </div>
       </main>

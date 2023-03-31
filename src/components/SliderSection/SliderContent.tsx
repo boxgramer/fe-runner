@@ -53,6 +53,10 @@ export default function SliderContent({
             <Image
               src={image1.src}
               alt={image1.alt}
+              sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              30vw"
+              loading="lazy"
               className="object-cover h-full w-full"
             />
           </div>
@@ -64,6 +68,10 @@ export default function SliderContent({
             <Image
               src={image2.src}
               alt={image2.alt}
+              sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              30vw"
+              loading="lazy"
               className="object-cover h-full w-full"
             />
           </div>

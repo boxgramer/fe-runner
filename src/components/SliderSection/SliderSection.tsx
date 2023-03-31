@@ -148,6 +148,7 @@ export default function SliderSection({ id, data }: any) {
           ].map((idx) => {
             return (
               <button
+                aria-label="slider "
                 key={idx}
                 onClick={() => {
                   instanceRef.current?.moveToIdx(idx);

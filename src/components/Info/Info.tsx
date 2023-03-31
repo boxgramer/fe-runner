@@ -64,6 +64,7 @@ export default function Info({ id, data }: any) {
                   src={e.image}
                   alt={e.alt}
                   className="object-cover h-full w-full"
+                  loading="lazy"
                 />
               </div>
               <h1 className="font-bold text-black text-xl text-center underline  underline-offset-4 lg:text-[30px] lg:mt-3 ">
