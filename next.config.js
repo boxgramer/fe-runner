@@ -4,7 +4,7 @@ const { debug } = require("console");
 const nextConfig = {
   reactStrictMode: true,
   // output: "export",
-  distDir: "dist",
+  // distDir: "dist",
   // assetPrefix: process.env.NODE_ENV === "production" ? "/fe-runner" : undefined,
   images: {
     unoptimized: true,
