@@ -8,7 +8,7 @@ this landing page is generated with next js, tailwind 3
 - mobile <br/>
 	<img src="screenshoot/screencapture-mobile.png"/>
 
-checkout my <a hfref="">live demo </a>
+checkout my <a hfref="https://fe-runner-boxgramer.vercel.app/">live demo </a>
 
 # feature
 - nextjs for static site generator
