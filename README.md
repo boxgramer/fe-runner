@@ -1,38 +1,162 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Landing Page Template Built with NextJs 13+
 
-## Getting Started
+this landing page is generated with next js, tailwind 3
 
-First, run the development server:
+# DEMO
+- desktop <br/>
+	<img src="screenshoot/screencapture-pc.png"/>
+- mobile <br/>
+	<img src="screenshoot/screencapture-mobile.png"/>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+checkout my <a hfref="">live demo </a>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# feature
+- nextjs for static site generator
+- integrated with Tailwind css
+- using Typescript
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+# library
+- use <a href="https://keen-slider.io/"> keen-slider</a>
+- use <a href="https://github.com/pmndrs/zustand"> zustand </a>
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+# component 
+- Header
+- Info
+- InfoGalery
+- Landing
+- SliderSection
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+# how to usage
+- Header Component  
+	```tsx
+  <Header data={{logo: {src: image , alt: imgalt} ,menus: [
+   {
+     label : 'home',
+     link  : '#'
+   },
+   {
+     label : 'info',
+     link  : '#'
+   },
+  ]}} />
+	```
+- Info Component
+	```tsx
+  const infoRef = useRef(null);
+  const dataInfo= [
+    {
+      image: "/images/heart-beat.png",
+      alt: "heart beat",
+      title: "heart beat",
+    },
+    {
+      image: "/images/bmi.png",
+      alt: "bmi",
+      title: "weight body",
+    },
+    {
+      image: "/images/mental-health.png",
+      alt: "mental health",
+      title: "release strees",
+    },
+  ];
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+  <Info id={infoRef} data={dataInfo} />
+	```
+- InfoGalery 
+	```tsx
+  const infoRef = useRef(null);
+  const infoGalery = {
+    title: "Runnig and Walking",
+    description:
+      " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do" +
+      "eiusmod tempor incididunt ut labore et dolore magna aliqua. Eros in " +
+      "cursus turpis massa tincidunt dui ut. Id semper risus in hendrerit " +
+      "gravida rutrum quisque non. Laoreet suspendisse interdum consectetur " +
+      "libero id. Vel risus commodo viverra maecenas accumsan lacus vel " +
+      "facilisis volutpat. ",
+    image1: {
+      src: "/images/section_2_image_1.jpg",
+      alt: "image section 2",
+    },
+    image2: {
+      src: "/images/section_2_image_2.jpg",
+      alt: "image section 2",
+    },
+  };
+  <InfoGalery id={infoRef} data={infoGalery} />
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+	```
+- Landing Component
+	```tsx
+  <Lading id="landing" data={{
+     title : 'running club',
+     description : ' Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor',
+      button : {
+        title : 'Start Exploring',
+        link : '#'
+      }
+  }
+  }/>
+	```
+- SliderSection
+	```tsx
+ 	const slidereRef = useRef(null);
+ 	const dataSlider = [
+    {
+      title: "Running On Road",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do" +
+        "eiusmod tempor incididunt ut labore et dolore magna aliqua." +
+        " Dolor magna eget est lorem ipsum dolor sit amet consectetur." +
+        " Iaculis eu non diam phasellus vestibulum. Eleifend quam" +
+        " adipiscing vitae proin sagittis nisl rhoncus. Sit amet nisl" +
+        " suscipit",
+      image1: {
+        src: "/images/section_4_image_1.jpg",
+        alt: "image 1",
+      },
+      image2: {
+        src: "/images/section_4_image_2.jpg",
+        alt: "image 2",
+      },
+    },
+    {
+      title: "Running On Road 2",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do" +
+        "eiusmod tempor incididunt ut labore et dolore magna aliqua." +
+        " Dolor magna eget est lorem ipsum dolor sit amet consectetur." +
+        " Iaculis eu non diam phasellus vestibulum. Eleifend quam" +
+        " adipiscing vitae proin sagittis nisl rhoncus. Sit amet nisl" +
+        " suscipit",
+      image1: {
+        src: "/images/section_4_image_2.jpg",
+        alt: "image 1",
+      },
+      image2: {
+        src: "/images/section_4_image_1.jpg",
+        alt: "image 2",
+      },
+    },
+  ];
 
-## Deploy on Vercel
+  <SliderSection id={slidereRef} data={dataSlider} />
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+	```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### License Code
+
+Licensed under the MIT License, Copyright © 2023
+
+See [LICENSE](LICENSE) for more information.
+
+### License Asset
+
+- image  source from unsplash <a hfre="https://unsplash.com/license">click here for license </a>
+
+
